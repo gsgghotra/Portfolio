@@ -1,0 +1,289 @@
+* {
+    box-sizing: border-box;
+  }
+
+:root {
+    --THEME-COLOR-PRIMARY: #12365a;
+    --THEME-COLOR-SECONDARY : #39aeb5;
+    --THEME-COLOR-LIGHT : #ededf6;
+    --IMAGE-GRADIENT : linear-gradient(to bottom, rgba(5, 5, 5, 0.52), rgba(117, 19, 93, 0.73));
+    --NO-GRADIENT: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0));
+}
+
+body {
+    background-color:var(--THEME-COLOR-LIGHT);
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* Header */
+header{
+    display: flex;
+    display: grid;
+    height: 62px;
+    background-color: var(--THEME-COLOR-PRIMARY);
+    box-shadow: 0px 0px 8px rgba(0,0,0,.6);
+    grid-template-columns: 30% auto 40%;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "Logo  freeSpace  Navigation";
+}
+
+header .logo{
+    grid-area: Logo;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Navigation Section */
+
+nav {
+    grid-area: Navigation;
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+}
+
+nav ul li {
+    margin-left: 15px;
+    color: white;
+    display: inline;
+    font-size: 18px;
+    border-bottom: 3px solid grey;
+    position: relative;
+    bottom: 0;
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color:white;
+  }
+  
+  /* selected link */
+  a:active {
+    color: var(--THEME-COLOR-SECONDARY);
+  }
+/* Hero Section */
+#hero {
+    min-height: 198px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero2.png");
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: end;
+    align-items: self-end;
+  }
+
+ #hero:hover{
+    opacity:1;
+    transition: 1s ease;
+    }
+
+.heroSubheading {
+    display: flex;
+    position: relative;
+    background-color: var(--THEME-COLOR-SECONDARY);
+    right: 10%;
+    bottom: 30px;
+}
+
+.heroSubheading .heading {
+    display: inline-block;
+    font-size: 2em;
+    padding: 10px;
+    color: var(--THEME-COLOR-PRIMARY);
+}
+/* Main Content Section */
+main{
+ padding: 10px 0;
+}
+
+
+/* UnitBox - The whole area underneath Hero*/
+.unitBox{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "label  portfolio"; 
+}
+
+.label{
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    border-right: 1px solid black;
+    margin-top: 25px;
+    font-size: 3em;
+    padding-right: 10%;
+    color: var(--THEME-COLOR-PRIMARY);
+    text-align: right;
+}
+
+.contentBox{
+    margin: 25px 0px;
+    display: flex;
+    justify-content: center;
+}
+.contentBox p{
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+}
+/* Work */
+#work .contentBox{
+    display: grid;
+    grid-template-rows: 200px auto;
+    grid-auto-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px 0;
+}
+
+
+
+/* Highlighted Work */
+.highlightWork{
+    position: relative;
+    width: 90%;
+    height: 200px;
+    background: #000;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    margin: auto;
+    border: 5px solid var(--THEME-COLOR-SECONDARY);
+}
+
+.highlightWork .workbg, .workLists .workbg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.highlightWork .workbg:before, .workLists .workbg:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,#aaa3a3,#3c3c3c);
+    z-index: 1;
+    opacity: 1;
+    transition: 0.5s;
+    mix-blend-mode: multiply;
+}
+.highlightWork:hover .workbg:before, .workLists:hover .workbg:before{
+    opacity: 0.5;
+}
+
+.highlightWork .workbg img, .workLists .workbg img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: linear-gradient(90deg,#f00,#000);
+  
+  }
+
+/* WorkLists */
+.workList{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+} 
+.workLists{
+    position: relative;
+    width:40%;
+    height: 150px;
+    background: #000;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    margin-right: 15px;
+    margin-top: 45px;
+    border: 5px solid var(--THEME-COLOR-SECONDARY);
+}
+
+
+#work1{
+    background-image: var(--IMAGE-GRADIENT), url(../images/work1.png);
+    opacity: 0.7;
+    transition: 0.9s;
+    background-color: #12365a;
+}
+
+#work1:hover {
+    background-image: var(--NO-GRADIENT), url(../images/work1.png);
+}
+
+/* Inner Label */
+.boxLabel {
+    position: absolute;
+    float: left;
+    padding: 10px 15px 15px 10px;
+    z-index: 1;
+    background-color: var(--THEME-COLOR-SECONDARY);
+    bottom: 25px;
+    -webkit-box-shadow: 11px 10px 5px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 11px 10px 5px -7px rgba(0,0,0,0.75);
+    box-shadow: 11px 10px 5px -7px rgba(0,0,0,0.75);
+}
+.boxLabel .heading {
+    display: inline-block;
+    font-size: large;
+    color: var(--THEME-COLOR-PRIMARY);
+    font-weight: 600;
+}
+.boxLabel .subheading {
+    display: block;
+    color: white;
+    font-size: small;
+}
+
+
+/* Footer Section */
+#contactMe .contentBox{
+    width: 90%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: auto;
+}
+.footerSection{
+    text-align: center;
+    padding: 20px;
+    
+}
+.footerSection a {
+    font-size: 18px;
+    color:var(--THEME-COLOR-PRIMARY);
+    padding-bottom: 5px;
+    border-bottom: 3px solid grey;
+}
