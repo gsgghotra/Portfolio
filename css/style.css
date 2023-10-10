@@ -19,7 +19,6 @@ body {
 
 /* Header */
 header{
-    display: flex;
     display: grid;
     height: 62px;
     background-color: var(--THEME-COLOR-PRIMARY);
@@ -82,8 +81,8 @@ a:link {
   }
 /* Hero Section */
 #hero {
-    min-height: 198px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero2.png");
+    min-height: 250px;
+    background-image: url("../images/HeroGS.png");
     /* Position and center the image to scale nicely on all screens */
     background-position: center;
     background-repeat: no-repeat;
@@ -286,4 +285,81 @@ main{
     color:var(--THEME-COLOR-PRIMARY);
     padding-bottom: 5px;
     border-bottom: 3px solid grey;
+}
+
+/* Tab */
+@media only screen and (max-width: 1000px)  {
+    header {
+        height: 100px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: "Logo"
+        "Navigation";
+    }
+    header .logo {
+        padding: 10px auto;
+        grid-area: Logo;
+        display: flex;
+    }
+    nav ul li {
+        display: inline;
+        font-size: 12px;
+
+    }
+    nav ul{
+        display: contents;
+    }
+    nav {
+        padding: 5px;
+        align-items: center;
+    }
+
+    /* UnitBox - The whole area underneath Hero*/
+    .unitBox{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px auto;
+        grid-template-areas: 
+        "label"
+        "Portfolio" 
+    }
+    .label {
+        display: flex;
+        justify-content: center;
+        /* align-items: baseline; */
+        border-right: 0px; 
+        margin: 0;
+        padding: 0;
+        font-size: 2em;
+    }
+
+    /* Highlighted Work */
+    .highlightWork{
+        width: 90%;
+        height: 200px;
+    }
+
+    .workList{
+        margin-top: 20px;
+    }
+    .workLists{
+        width:90%;
+        margin: 10px auto;
+    }
+
+    #contactMe .contentBox{
+        grid-template-columns: auto auto;
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 600px)  {
+
+    #hero {
+        display: none;
+    }
+
+    #contactMe .contentBox{
+        grid-template-columns: auto;
+    }
 }
